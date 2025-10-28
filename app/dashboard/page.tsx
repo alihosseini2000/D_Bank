@@ -54,7 +54,7 @@ export default function DashboardPage() {
 
       {/* Balance Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="bg-gradient-to-br from-cyan-500 to-blue-500 border-0 text-white">
+        <Card className="bg-linear-to-br from-cyan-500 to-blue-500 border-0 text-white">
           <CardHeader className="pb-2">
             <CardTitle className="text-white/90">Total Balance</CardTitle>
           </CardHeader>

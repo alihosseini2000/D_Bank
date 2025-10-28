@@ -208,7 +208,7 @@ export default function SwapPage() {
               )}
 
               <Button
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+                className="w-full bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
                 onClick={handleSwap}
                 disabled={!fromAmount || !toAmount}
               >

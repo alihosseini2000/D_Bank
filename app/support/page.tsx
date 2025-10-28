@@ -185,7 +185,7 @@ export default function SupportPage() {
               className="border-gray-800 hover:border-cyan-500/50 transition-all cursor-pointer"
             >
               <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 flex items-center justify-center mb-3">
+                <div className="w-12 h-12 rounded-lg bg-linear-to-r from-cyan-500/10 to-blue-500/10 flex items-center justify-center mb-3">
                   <Icon className="h-6 w-6 text-cyan-500" />
                 </div>
                 <CardTitle>{resource.title}</CardTitle>
@@ -298,7 +298,7 @@ export default function SupportPage() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+                  className="w-full bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
                 >
                   <Send className="h-4 w-4 mr-2" />
                   Submit Ticket
@@ -307,7 +307,7 @@ export default function SupportPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
+          <Card className="bg-linear-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
             <CardHeader>
               <CardTitle>Need Immediate Help?</CardTitle>
             </CardHeader>

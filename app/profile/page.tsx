@@ -36,13 +36,13 @@ export default function ProfilePage() {
           <CardContent className="flex flex-col items-center">
             <Avatar className="w-32 h-32 mb-4">
               <AvatarImage src="" alt="Profile" />
-              <AvatarFallback className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-3xl">
+              <AvatarFallback className="bg-linear-to-r from-cyan-500 to-blue-500 text-white text-3xl">
                 JD
               </AvatarFallback>
             </Avatar>
             <h3 className="mb-1">John Doe</h3>
             <p className="text-gray-400 mb-4">john.doe@example.com</p>
-            <Badge className="bg-gradient-to-r from-cyan-500 to-blue-500 mb-4">
+            <Badge className="bg-linear-to-r from-cyan-500 to-blue-500 mb-4">
               Verified User
             </Badge>
             <div className="flex gap-2 w-full">
@@ -106,7 +106,7 @@ export default function ProfilePage() {
                     />
                   </div>
 
-                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-500">
+                  <Button className="bg-linear-to-r from-cyan-500 to-blue-500">
                     Save Changes
                   </Button>
                 </div>
@@ -157,7 +157,7 @@ export default function ProfilePage() {
                     <Input id="confirmPassword" type="password" />
                   </div>
 
-                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-500">
+                  <Button className="bg-linear-to-r from-cyan-500 to-blue-500">
                     Update Password
                   </Button>
                 </div>
@@ -211,7 +211,7 @@ export default function ProfilePage() {
                     </select>
                   </div>
 
-                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-500">
+                  <Button className="bg-linear-to-r from-cyan-500 to-blue-500">
                     Save Preferences
                   </Button>
                 </div>
@@ -219,7 +219,7 @@ export default function ProfilePage() {
 
               <TabsContent value="tokens" className="space-y-4">
                 <div className="space-y-4">
-                  <Card className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
+                  <Card className="bg-linear-to-r from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Coins className="h-5 w-5 text-cyan-500" />
@@ -260,7 +260,7 @@ export default function ProfilePage() {
                   </div>
 
                   <div className="flex gap-2">
-                    <Button className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500">
+                    <Button className="flex-1 bg-linear-to-r from-cyan-500 to-blue-500">
                       Stake Tokens
                     </Button>
                     <Button variant="outline" className="flex-1">

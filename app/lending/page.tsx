@@ -81,7 +81,7 @@ export default function LendingPage() {
                   <tr key={market.asset} className="border-b border-gray-800 hover:bg-gray-800/30">
                     <td className="py-4">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-linear-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
                           {market.asset.substring(0, 2)}
                         </div>
                         <span>{market.asset}</span>
@@ -231,7 +231,7 @@ export default function LendingPage() {
                 </Alert>
 
                 <Button
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+                  className="w-full bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
                   onClick={handleBorrow}
                   disabled={!collateralAmount || !loanAmount}
                 >
@@ -256,7 +256,7 @@ export default function LendingPage() {
                   <div className="text-sm text-gray-400">Available: 2.5432 ETH</div>
                 </div>
 
-                <Card className="bg-gradient-to-r from-green-500/10 to-cyan-500/10 border-green-500/50">
+                <Card className="bg-linear-to-r from-green-500/10 to-cyan-500/10 border-green-500/50">
                   <CardContent className="pt-6 space-y-2">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Supply APY</span>
@@ -269,7 +269,7 @@ export default function LendingPage() {
                   </CardContent>
                 </Card>
 
-                <Button className="w-full bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600">
+                <Button className="w-full bg-linear-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600">
                   Supply
                 </Button>
               </TabsContent>
@@ -284,7 +284,7 @@ export default function LendingPage() {
               <CardTitle>Your Position</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10">
+              <div className="p-4 rounded-lg bg-linear-to-r from-cyan-500/10 to-blue-500/10">
                 <div className="flex items-center gap-2 mb-2">
                   <Coins className="h-4 w-4 text-cyan-500" />
                   <span className="text-sm text-gray-400">Total Borrowed</span>
@@ -292,7 +292,7 @@ export default function LendingPage() {
                 <div className="text-2xl">$5,000.00</div>
               </div>
 
-              <div className="p-4 rounded-lg bg-gradient-to-r from-green-500/10 to-cyan-500/10">
+              <div className="p-4 rounded-lg bg-linear-to-r from-green-500/10 to-cyan-500/10">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingUp className="h-4 w-4 text-green-500" />
                   <span className="text-sm text-gray-400">Total Supplied</span>
@@ -300,7 +300,7 @@ export default function LendingPage() {
                 <div className="text-2xl">$12,500.00</div>
               </div>
 
-              <div className="p-4 rounded-lg bg-gradient-to-r from-orange-500/10 to-red-500/10">
+              <div className="p-4 rounded-lg bg-linear-to-r from-orange-500/10 to-red-500/10">
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="h-4 w-4 text-orange-500" />
                   <span className="text-sm text-gray-400">Health Factor</span>

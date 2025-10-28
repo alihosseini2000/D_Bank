@@ -60,7 +60,7 @@ export function Header() {
           </Button>
           
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavigate('dashboard')}>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-linear-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
               <span className="text-white">DF</span>
             </div>
             <span className="text-xl hidden sm:inline">DeFi Bank</span>
@@ -109,7 +109,7 @@ export function Header() {
                 <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                   <Avatar>
                     <AvatarImage src="" alt="User avatar" />
-                    <AvatarFallback className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
+                    <AvatarFallback className="bg-linear-to-r from-cyan-500 to-blue-500 text-white">
                       {address ? address.slice(0, 2).toUpperCase() : 'JD'}
                     </AvatarFallback>
                   </Avatar>

@@ -81,7 +81,7 @@ export default function GovernancePage() {
   ];
 
   const handleVote = (proposalId: number, vote: 'for' | 'against') => {
-    setSelectedVote({ @/components.selectedVote, [proposalId]: vote });
+    setSelectedVote({ ...selectedVote, [proposalId]: vote });
     toast.success(`Voted ${vote === 'for' ? 'For' : 'Against'} proposal #${proposalId}`);
   };
 
@@ -116,7 +116,7 @@ export default function GovernancePage() {
 
       {/* Voting Power Card */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="bg-gradient-to-br from-cyan-500 to-blue-500 border-0 text-white">
+        <Card className="bg-linear-to-br from-cyan-500 to-blue-500 border-0 text-white">
           <CardHeader className="pb-2">
             <CardTitle className="text-white/90">Your Voting Power</CardTitle>
           </CardHeader>
@@ -323,14 +323,14 @@ export default function GovernancePage() {
       </Card>
 
       {/* Create Proposal Button */}
-      <Card className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
+      <Card className="bg-linear-to-r from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
         <CardContent className="py-8 text-center">
           <h3 className="mb-2">Want to create a proposal?</h3>
           <p className="text-gray-400 mb-4">
             You need at least 100,000 GOV tokens to create a new proposal
           </p>
           <Button
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+            className="bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
             disabled
           >
             Create Proposal (Requires 100k GOV)

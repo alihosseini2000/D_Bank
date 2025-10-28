@@ -226,7 +226,7 @@ export function TransactionsPage() {
               <CardTitle>All Transactions</CardTitle>
               <CardDescription>Complete history of your blockchain activity</CardDescription>
             </div>
-            <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
+            <Button className="bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
               <Download className="h-4 w-4 mr-2" />
               Export CSV
             </Button>

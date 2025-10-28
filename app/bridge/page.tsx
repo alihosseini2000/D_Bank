@@ -46,7 +46,7 @@ export default function BridgePage() {
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Chain Selection Map */}
-              <div className="p-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700">
+              <div className="p-6 rounded-lg bg-linear-to-br from-gray-800 to-gray-900 border border-gray-700">
                 <div className="flex items-center justify-between mb-6">
                   <div className="text-center flex-1">
                     <div className="mb-2 text-gray-400">From Chain</div>
@@ -186,7 +186,7 @@ export default function BridgePage() {
               </Alert>
 
               <Button
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+                className="w-full bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
                 onClick={handleBridge}
                 disabled={!amount}
               >
@@ -254,7 +254,7 @@ export default function BridgePage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
+          <Card className="bg-linear-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/50">
             <CardHeader>
               <CardTitle>Recent Bridges</CardTitle>
             </CardHeader>

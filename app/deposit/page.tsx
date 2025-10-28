@@ -121,7 +121,7 @@ export function DepositPage() {
 
       {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="bg-gradient-to-br from-cyan-500 to-blue-500 border-0 text-white">
+        <Card className="bg-linear-to-br from-cyan-500 to-blue-500 border-0 text-white">
           <CardHeader className="pb-2">
             <CardTitle className="text-white/90">Total Deposited</CardTitle>
           </CardHeader>
@@ -194,7 +194,7 @@ export function DepositPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <div className="text-center p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10">
+                  <div className="text-center p-4 rounded-lg bg-linear-to-r from-cyan-500/10 to-blue-500/10">
                     <div className="text-3xl text-cyan-500 mb-1">{pool.apy}%</div>
                     <div className="text-sm text-gray-400">APY</div>
                   </div>
@@ -218,7 +218,7 @@ export function DepositPage() {
                     </div>
                   </div>
 
-                  <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
+                  <Button className="w-full bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
                     Stake Now
                   </Button>
                 </CardContent>
@@ -313,7 +313,7 @@ export function DepositPage() {
                 </Alert>
 
                 <Button
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+                  className="w-full bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
                   onClick={handleStake}
                   disabled={!stakeAmount || !selectedPool}
                 >

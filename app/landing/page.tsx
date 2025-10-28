@@ -20,7 +20,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-950 text-white">
+    <div className="min-h-screen bg-linear-to-b from-gray-900 to-gray-950 text-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -45,7 +45,7 @@ export default function LandingPage() {
               transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
               className="inline-block mb-6"
             >
-              <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/50">
+              <div className="w-20 h-20 mx-auto rounded-full bg-linear-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/50">
                 <span className="text-3xl font-bold">DF</span>
               </div>
             </motion.div>
@@ -55,7 +55,7 @@ export default function LandingPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+              className="text-5xl md:text-6xl font-bold mb-6 bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
             >
               The Future of Decentralized Finance
             </motion.h1>
@@ -79,7 +79,7 @@ export default function LandingPage() {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold"
+                className="bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold"
                 onClick={() => router.push('/login')}
               >
                 Get Started
@@ -101,19 +101,19 @@ export default function LandingPage() {
               className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
             >
               <div>
-                <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold mb-2 bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                   $2.5B+
                 </div>
                 <div className="text-gray-400 text-sm">Total Value Locked</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold mb-2 bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                   500K+
                 </div>
                 <div className="text-gray-400 text-sm">Active Users</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold mb-2 bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                   15+
                 </div>
                 <div className="text-gray-400 text-sm">Supported Chains</div>
@@ -152,7 +152,7 @@ export default function LandingPage() {
                 >
                   <Card className="bg-gray-900 border-gray-800 hover:border-cyan-500/50 transition-all duration-300 h-full">
                     <CardHeader>
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 flex items-center justify-center mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-linear-to-r from-cyan-500/10 to-blue-500/10 flex items-center justify-center mb-4">
                         <Icon className="h-6 w-6 text-cyan-500" />
                       </div>
                       <CardTitle className="text-white">{feature.title}</CardTitle>
@@ -169,7 +169,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-cyan-600 to-blue-600">
+      <section className="py-24 bg-linear-to-r from-cyan-600 to-blue-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -209,7 +209,7 @@ export default function AdminPage() {
                   className="flex items-center justify-between p-4 rounded-lg border border-gray-800 hover:border-cyan-500/50 transition-colors"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white">
+                    <div className="w-10 h-10 rounded-full bg-linear-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white">
                       {user.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>
