@@ -5,7 +5,10 @@ interface UserState {
   balance: string;
 }
 
-const initialState: UserState = { address: null, balance: '0' };
+const initialState: UserState = {
+  address: null,
+  balance: '0',
+};
 
 const userSlice = createSlice({
   name: 'user',

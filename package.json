@@ -21,6 +21,7 @@
     "jwt-decode": "^4.0.0",
     "lightweight-charts": "^5.0.9",
     "lucide-react": "^0.548.0",
+    "mongodb": "4.1",
     "mongoose": "^8.0.0",
     "motion": "^12.23.24",
     "next": "16.0.0",
@@ -36,14 +37,14 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "babel-plugin-react-compiler": "1.0.0",
-    "tailwindcss": "^4.1.16",
-    "typescript": "^5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
-    "postcss": "^8"
+    "postcss": "^8",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5"
   }
 }
