@@ -1,10 +1,12 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ArrowUpRight, ArrowDownRight, TrendingUp, Wallet, Activity } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-export function DashboardPage() {
+export default function DashboardPage() {
   const balanceData = [
     { name: 'Jan', value: 4000 },
     { name: 'Feb', value: 3000 },

@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
@@ -14,7 +16,7 @@ interface LoginPageProps {
     onLogin: () => void;
 }
 
-export function LoginPage({ onLogin }: LoginPageProps) {
+export default function LoginPage({ onLogin }: LoginPageProps) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [twoFACode, setTwoFACode] = useState('');
