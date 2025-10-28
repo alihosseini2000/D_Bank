@@ -1,13 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface UserState {
+  address: string | null;
+  balance: string;
+}
+
+const initialState: UserState = { address: null, balance: '0' };
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: { address: '', profile: null, history: [] },
+  initialState,
   reducers: {
-    setUser: (state, action) => { state.address = action.payload; },
-    setProfile: (state, action) => { state.profile = action.payload; },
+    setWallet: (state, action: PayloadAction<string>) => {
+      state.address = action.payload;
+    },
+    setBalance: (state, action: PayloadAction<string>) => {
+      state.balance = action.payload;
+    },
   },
 });
 
-export const { setUser, setProfile } = userSlice.actions;
+export const { setWallet, setBalance } = userSlice.actions;
 export default userSlice.reducer;
