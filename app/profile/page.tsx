@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -10,7 +12,7 @@ import { Separator } from '@/components/ui/separator';
 import { User, Mail, Shield, Bell, Eye, Globe, Coins } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 
-export function ProfilePage() {
+export default function ProfilePage() {
   const historyLogs = [
     { id: 1, action: 'Login', location: 'New York, US', time: '2 hours ago', status: 'success' },
     { id: 2, action: 'Swap ETH → USDT', location: 'New York, US', time: '5 hours ago', status: 'success' },

@@ -5,6 +5,8 @@ import { ArrowUpRight, ArrowDownRight, TrendingUp, Wallet, Activity } from 'luci
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 export default function DashboardPage() {
   const balanceData = [
@@ -41,8 +43,10 @@ export default function DashboardPage() {
     { id: 4, type: 'deposit', amount: '+$3,500.00', token: 'BTC', time: '2 days ago', status: 'pending' },
   ];
 
+  const { theme } = useSelector((state: RootState) => state.user)
+
   return (
-    <div className="p-4 md:p-8 space-y-6 lg:ml-64">
+    <div className={`p-4 md:p-8 space-y-6 lg:ml-64 ${theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'}`}>
       <div>
         <h1>Dashboard</h1>
         <p className="text-gray-400">Welcome back! Here's your portfolio overview</p>
@@ -206,13 +210,12 @@ export default function DashboardPage() {
                 >
                   <div className="flex items-center gap-4">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                        tx.type === 'deposit'
+                      className={`w-10 h-10 rounded-full flex items-center justify-center ${tx.type === 'deposit'
                           ? 'bg-green-500/10 text-green-500'
                           : tx.type === 'withdraw'
-                          ? 'bg-red-500/10 text-red-500'
-                          : 'bg-blue-500/10 text-blue-500'
-                      }`}
+                            ? 'bg-red-500/10 text-red-500'
+                            : 'bg-blue-500/10 text-blue-500'
+                        }`}
                     >
                       {tx.type === 'deposit' ? (
                         <ArrowDownRight className="h-5 w-5" />

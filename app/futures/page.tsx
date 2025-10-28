@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,7 +13,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { TrendingUp, TrendingDown } from 'lucide-react';
 import { toast } from 'sonner';
 
-export function FuturesPage() {
+export default function FuturesPage() {
   const [orderType, setOrderType] = useState<'market' | 'limit'>('market');
   const [position, setPosition] = useState<'long' | 'short'>('long');
   const [leverage, setLeverage] = useState([10]);

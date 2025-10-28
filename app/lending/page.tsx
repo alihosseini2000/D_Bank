@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,7 +13,7 @@ import { Slider } from '@/components/ui/slider';
 import { AlertCircle, TrendingUp, Shield, Coins } from 'lucide-react';
 import { toast } from 'sonner';
 
-export function LendingPage() {
+export default function LendingPage() {
   const [loanAmount, setLoanAmount] = useState('');
   const [collateralAmount, setCollateralAmount] = useState('');
   const [ltv, setLtv] = useState([65]);

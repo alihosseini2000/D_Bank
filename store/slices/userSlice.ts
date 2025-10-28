@@ -1,27 +1,45 @@
+// app/(providers)/userSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserState {
   address: string | null;
-  balance: string;
+  isConnected: boolean;
+  theme: 'light' | 'dark';
+  language: 'en' | 'es' | 'zh';
+  isAdmin: boolean;
 }
 
 const initialState: UserState = {
   address: null,
-  balance: '0',
+  isConnected: false,
+  theme: 'dark',
+  language: 'en',
+  isAdmin: false,
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setWallet: (state, action: PayloadAction<string>) => {
+    connectWallet: (state, action: PayloadAction<string>) => {
       state.address = action.payload;
+      state.isConnected = true;
     },
-    setBalance: (state, action: PayloadAction<string>) => {
-      state.balance = action.payload;
+    disconnectWallet: (state) => {
+      state.address = null;
+      state.isConnected = false;
+    },
+    toggleTheme: (state) => {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+    },
+    setLanguage: (state, action: PayloadAction<'en' | 'es' | 'zh'>) => {
+      state.language = action.payload;
+    },
+    setAdmin: (state, action: PayloadAction<boolean>) => {
+      state.isAdmin = action.payload;
     },
   },
 });
 
-export const { setWallet, setBalance } = userSlice.actions;
+export const { connectWallet, disconnectWallet, toggleTheme, setLanguage, setAdmin } = userSlice.actions;
 export default userSlice.reducer;

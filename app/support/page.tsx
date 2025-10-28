@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 
-export function SupportPage() {
+export default function SupportPage() {
   const faqs = [
     {
       category: 'Getting Started',

@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -7,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Vote, CheckCircle, XCircle, Clock, TrendingUp } from 'lucide-react';
 import { toast } from 'sonner';
 
-export function GovernancePage() {
+export default function GovernancePage() {
   const [selectedVote, setSelectedVote] = useState<{ [key: number]: 'for' | 'against' | null }>({});
 
   const proposals = [

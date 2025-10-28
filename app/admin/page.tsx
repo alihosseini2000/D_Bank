@@ -3,7 +3,7 @@ import { AreaChart, Area, BarChart, Bar, LineChart, Line, XAxis, YAxis, Cartesia
 import { Users, DollarSign, TrendingUp, Activity, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
-export function AdminPage() {
+export default function AdminPage() {
   const userGrowthData = [
     { month: 'Jan', users: 1200 },
     { month: 'Feb', users: 1900 },

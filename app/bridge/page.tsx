@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,7 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, AlertCircle, Info } from 'lucide-react';
 import { toast } from 'sonner';
 
-export function BridgePage() {
+export default function BridgePage() {
   const [amount, setAmount] = useState('');
   const [fromChain, setFromChain] = useState('ethereum');
   const [toChain, setToChain] = useState('polygon');

@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Providers from './(providers)/WagmiProvider';
-import { ReduxProvider } from '@/store/ReduxProvider';
+import Providers from './(providers)/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'D_Bank - DeFi Platform',
-  description: 'Decentralized Banking with Swap, Bridge, Futures & Governance',
+  title: 'D_Bank',
+  description: 'Decentralized Banking Platform',
 };
 
 export default function RootLayout({
@@ -18,10 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-900 text-white`}>
-        <ReduxProvider>
-          <Providers>{children}</Providers>
-        </ReduxProvider>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import { Moon, Sun, Globe, Menu, Bell } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -8,29 +11,36 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
-import { PageType } from '../App';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/store/store';
+import { toggleTheme, setLanguage, disconnectWallet } from '@/store/slices/userSlice';
+import { useAccount, useDisconnect } from 'wagmi';
+import { useRouter } from 'next/navigation';
 
-interface HeaderProps {
-  isLoggedIn: boolean;
-  theme: 'light' | 'dark';
-  language: string;
-  onThemeToggle: () => void;
-  onLanguageChange: (lang: 'en' | 'es' | 'zh') => void;
-  onLogout: () => void;
-  onNavigate: (page: PageType) => void;
-  onToggleSidebar: () => void;
-}
+export function Header() {
+  const dispatch = useDispatch();
+  const { theme, language, isConnected, address } = useSelector((state: RootState) => state.user);
+  const { disconnect } = useDisconnect();
+  const router = useRouter();
+  const { isConnected: wagmiConnected } = useAccount();
 
-export function Header({
-  isLoggedIn,
-  theme,
-  language,
-  onThemeToggle,
-  onLanguageChange,
-  onLogout,
-  onNavigate,
-  onToggleSidebar,
-}: HeaderProps) {
+  // همگام‌سازی Wagmi با Redux
+  React.useEffect(() => {
+    if (wagmiConnected && !isConnected) {
+      // بعداً از لاگین می‌گیریم
+    }
+  }, [wagmiConnected, isConnected]);
+
+  const handleLogout = () => {
+    disconnect();
+    dispatch(disconnectWallet());
+    router.push('/login');
+  };
+
+  const handleNavigate = (page: any) => {
+    router.push(`/${page}`);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 border-b ${
@@ -42,14 +52,14 @@ export function Header({
           <Button
             variant="ghost"
             size="icon"
-            onClick={onToggleSidebar}
+            onClick={() => {}}
             className="lg:hidden"
             aria-label="Toggle sidebar"
           >
             <Menu className="h-5 w-5" />
           </Button>
           
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('dashboard')}>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavigate('dashboard')}>
             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
               <span className="text-white">DF</span>
             </div>
@@ -58,12 +68,7 @@ export function Header({
         </div>
 
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative"
-            aria-label="Notifications"
-          >
+          <Button variant="ghost" size="icon" className="relative" aria-label="Notifications">
             <Bell className="h-5 w-5" />
             <Badge className="absolute -top-1 -right-1 px-1 min-w-5 h-5 bg-cyan-500 text-white border-0">
               3
@@ -77,13 +82,13 @@ export function Header({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => onLanguageChange('en')}>
+              <DropdownMenuItem onClick={() => dispatch(setLanguage('en'))}>
                 English
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => onLanguageChange('es')}>
+              <DropdownMenuItem onClick={() => dispatch(setLanguage('es'))}>
                 Español
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => onLanguageChange('zh')}>
+              <DropdownMenuItem onClick={() => dispatch(setLanguage('zh'))}>
                 中文
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -92,36 +97,32 @@ export function Header({
           <Button
             variant="ghost"
             size="icon"
-            onClick={onThemeToggle}
+            onClick={() => dispatch(toggleTheme())}
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? (
-              <Moon className="h-5 w-5" />
-            ) : (
-              <Sun className="h-5 w-5" />
-            )}
+            {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
           </Button>
 
-          {isLoggedIn && (
+          {isConnected && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                   <Avatar>
                     <AvatarImage src="" alt="User avatar" />
                     <AvatarFallback className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
-                      JD
+                      {address ? address.slice(0, 2).toUpperCase() : 'JD'}
                     </AvatarFallback>
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => onNavigate('profile')}>
+                <DropdownMenuItem onClick={() => handleNavigate('profile')}>
                   Profile
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => onNavigate('transactions')}>
+                <DropdownMenuItem onClick={() => handleNavigate('transactions')}>
                   Transactions
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={onLogout}>
+                <DropdownMenuItem onClick={handleLogout}>
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>

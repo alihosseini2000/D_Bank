@@ -34,4 +34,21 @@ async function dbConnect() {
   return cached.conn;
 }
 
+// مدل کاربر
+const userSchema = new mongoose.Schema({
+  address: { type: String, unique: true, required: true },
+  lastLogin: { type: Date, default: Date.now },
+});
+
+const User = mongoose.models.User || mongoose.model('User', userSchema);
+
+// تابع ذخیره کاربر
+export async function saveUser(address: string) {
+  await dbConnect();
+  await User.findOneAndUpdate(
+    { address },
+    { address, lastLogin: new Date() },
+    { upsert: true }
+  );
+}
 export default dbConnect;

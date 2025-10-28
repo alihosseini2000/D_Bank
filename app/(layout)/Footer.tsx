@@ -1,11 +1,18 @@
+"use client"
+
 import { Twitter, Github, Send, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 interface FooterProps {
   theme: 'light' | 'dark';
 }
 
-export function Footer({ theme }: FooterProps) {
+export function Footer() {
+
+  const { theme } = useSelector((state: RootState) => state.user);
+
   return (
     <footer
       className={`border-t mt-auto ${

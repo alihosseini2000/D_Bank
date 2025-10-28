@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -11,6 +11,11 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Wallet, Mail, Shield, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
+import { connectWallet } from '@/store/slices/userSlice';
+import { saveUser } from '@/lib/mongodb';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 interface LoginPageProps {
     onLogin: () => void;
@@ -22,6 +27,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
     const [twoFACode, setTwoFACode] = useState('');
     const [showTwoFA, setShowTwoFA] = useState(false);
 
+    const dispatch = useDispatch();
+    const router = useRouter()
+
     const handleEmailLogin = (e: React.FormEvent) => {
         e.preventDefault();
         setShowTwoFA(true);
@@ -29,7 +37,13 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
     const handleTwoFASubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        onLogin();
+        router.push('/dashboard');
+    };
+
+    const handleConnect = async (address: string) => {
+        dispatch(connectWallet(address));
+        await saveUser(address); // ذخیره در دیتابیس
+        router.push('/dashboard');
     };
 
     const handleWalletConnect = () => {
@@ -89,7 +103,33 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                                         </AlertDescription>
                                     </Alert>
 
-                                    <div className="space-y-3">
+                                    <ConnectButton.Custom>
+                                        {({ account, chain, openConnectModal, mounted }) => {
+                                            const ready = mounted;
+                                            const connected = ready && account && chain;
+
+                                            if (connected) {
+                                                // ذخیره در Redux + DB
+                                                dispatch(connectWallet(account.address));
+                                                saveUser(account.address).then(() => {
+                                                    router.push('/dashboard');
+                                                });
+                                            }
+
+                                            return (
+                                                <Button
+                                                    onClick={openConnectModal}
+                                                    disabled={!ready}
+                                                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+                                                >
+                                                    <Wallet className="mr-2 h-5 w-5" />
+                                                    {connected ? 'Connected' : 'Connect Wallet'}
+                                                </Button>
+                                            );
+                                        }}
+                                    </ConnectButton.Custom>
+
+                                    {/* <div className="space-y-3">
                                         <Button
                                             className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
                                             onClick={handleWalletConnect}
@@ -111,7 +151,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                                             <Wallet className="mr-2 h-5 w-5" />
                                             Coinbase Wallet
                                         </Button>
-                                    </div>
+                                    </div> */}
                                 </TabsContent>
 
                                 <TabsContent value="email" className="space-y-4">
